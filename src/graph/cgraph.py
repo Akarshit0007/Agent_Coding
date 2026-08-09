@@ -1,11 +1,14 @@
 from langgraph.graph import StateGraph, START, END
 
 from src.nodes.generate_answer import generate_answers
+from src.nodes.generate_answer2 import generate_answer2
 from src.nodes.judging_answers import judging_answers
 from src.nodes.load_questions import load_questions
 from src.nodes.start_agent import start_agent
+from src.nodes.start_agent2 import start_agent2
 from src.nodes.start_judge import start_judge
 from src.nodes.stop_agent import stop_agent
+from src.nodes.stop_agent2 import stop_agent2
 from src.nodes.stop_judge import stop_judge
 from src.state.BaseState import BaseState
 
@@ -15,6 +18,9 @@ workflow.add_node("load_questions", load_questions)
 workflow.add_node("start_agent", start_agent)
 workflow.add_node("generate_answer", generate_answers)
 workflow.add_node("stop_agent", stop_agent)
+workflow.add_node("start_agent2", start_agent2)
+workflow.add_node("generate_answer2", generate_answer2)
+workflow.add_node("stop_agent2", stop_agent2)
 workflow.add_node("start_judge", start_judge)
 workflow.add_node("judging_answers", judging_answers)
 workflow.add_node("stop_judge", stop_judge)
@@ -24,7 +30,10 @@ workflow.add_edge(START, "load_questions")
 workflow.add_edge("load_questions", "start_agent")
 workflow.add_edge("start_agent","generate_answer")
 workflow.add_edge("generate_answer", "stop_agent")
-workflow.add_edge("stop_agent", "start_judge")
+workflow.add_edge("stop_agent", "start_agent2")
+workflow.add_edge("start_agent2", "generate_answer2")
+workflow.add_edge("generate_answer2", "stop_agent2")
+workflow.add_edge("stop_agent2", "start_judge")
 workflow.add_edge("start_judge","judging_answers")
 workflow.add_edge("judging_answers","stop_judge")
 workflow.add_edge("stop_judge",END)

@@ -5,4 +5,5 @@ from src.state.EvalMetrics import EvalMetrics
 class BaseState(TypedDict):
     questions: List[str]
     agent_answer: Answers
+    total_time_taken: int
     judge_answer: EvalMetrics
