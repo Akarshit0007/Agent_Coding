@@ -6,6 +6,7 @@ from src.state.TimeConstraint import TimeConstraint
 
 class BaseState(TypedDict):
     file_name: str
+    active_agent_instance: str
     questions: List[str]
     agent1_answer: Answers
     agent2_answer: Answers
