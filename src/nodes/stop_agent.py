@@ -18,5 +18,4 @@ def stop_agent(state: BaseState):
 
     return {
         "active_agent_model": None,
-
     }
