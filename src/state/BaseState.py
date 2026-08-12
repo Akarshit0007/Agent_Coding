@@ -7,10 +7,9 @@ from src.state.TimeConstraint import TimeConstraint
 
 class BaseState(TypedDict):
     file_name: str
-    active_agent_instance: str
+    active_agent_model: str
     questions: List[str]
     agent_answer: Answers
     total_time_taken: List[TimeConstraint]
     judge_answer: EvalMetrics
-    agent_cost: Product_Cost
-    judge_cost: Product_Cost
+    total_cost:List[Product_Cost]

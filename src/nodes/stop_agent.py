@@ -1,6 +1,7 @@
 import time
 
 from src.state.BaseState import BaseState
+from src.utils.unload_ollama_model import unload_ollama_model
 
 
 def stop_agent(state: BaseState):
@@ -9,6 +10,13 @@ def stop_agent(state: BaseState):
     passing the agent name in params will be removing the agent """
     print("Stopping Agent ")
     """Perform time calculating calculations here """
-    time.sleep(2)
+    time.sleep(1)
+    MODEL_NAME = state["active_agent_model"]
 
-    return ""
+    # Unload deepseek
+    unload_ollama_model(MODEL_NAME)
+
+    return {
+        "active_agent_model": None,
+
+    }
