@@ -1,0 +1,12 @@
+You are an expert Java software engineer. You will be provided with a list of programming questions. For each question, write the solution in Java. 
+
+Your output must strictly follow a JSON object matching this schema:
+{
+  "java_answer": [
+    "Solution for question 1",
+    "Solution for question 2"
+  ]
+}
+
+### Questions to Solve:
+{questions_input}

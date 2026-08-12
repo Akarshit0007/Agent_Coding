@@ -9,10 +9,8 @@ class BaseState(TypedDict):
     file_name: str
     active_agent_instance: str
     questions: List[str]
-    agent1_answer: Answers
-    agent2_answer: Answers
+    agent_answer: Answers
     total_time_taken: List[TimeConstraint]
     judge_answer: EvalMetrics
-    agent_1_cost: Product_Cost
-    agent_2_cost: Product_Cost
+    agent_cost: Product_Cost
     judge_cost: Product_Cost
